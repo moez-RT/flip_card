@@ -153,6 +153,19 @@ class FlipCardState extends State<FlipCard>
       isFront = !isFront;
     });
   }
+  
+    void resetCard() {
+    if (widget.onFlip != null) {
+      widget.onFlip();
+    }
+    if (isFront) {
+    } else {
+      controller.reverse();
+    }
+    setState(() {
+      isFront = true;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
